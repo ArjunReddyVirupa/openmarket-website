@@ -1,25 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ContactForm from "./ContactForm";
 
 const images = [
   "https://rivor-tailwind.vercel.app/images/agent/01.jpg",
   "https://rivor-tailwind.vercel.app/images/agent/02.jpg",
   "https://rivor-tailwind.vercel.app/images/agent/03.jpg",
 ];
-
-const staggerVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const inputVariants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
-};
 
 const ContactBanner = () => {
   const [index, setIndex] = useState(0);
@@ -68,34 +55,7 @@ const ContactBanner = () => {
       </h2>
       <AnimatePresence>
         {showForm && (
-          <motion.div
-            className="d-flex flex-column align-items-center mt-4"
-            initial="hidden"
-            animate="show"
-            exit="hidden"
-            variants={staggerVariants}
-          >
-            <motion.input
-              type="text"
-              placeholder="Your Name"
-              className="form-control mb-3 w-50"
-              variants={inputVariants}
-            />
-
-            <motion.input
-              type="email"
-              placeholder="Your Email"
-              className="form-control mb-3 w-50"
-              variants={inputVariants}
-            />
-
-            <motion.textarea
-              rows={4}
-              placeholder="Your Message"
-              className="form-control mb-4 w-50"
-              variants={inputVariants}
-            />
-          </motion.div>
+          <ContactForm show={showForm} onClose={() => setShowForm(false)} />
         )}
       </AnimatePresence>
       <div
@@ -124,7 +84,7 @@ const ContactBanner = () => {
           }}
           onClick={() => setShowForm(true)}
         >
-          {showForm ? "Send Message" : "Contact Us"}
+          Contact Us
         </div>
       </div>
     </div>

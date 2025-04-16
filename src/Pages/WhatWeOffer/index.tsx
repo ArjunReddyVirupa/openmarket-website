@@ -54,7 +54,11 @@ export default function WhatWeOffer() {
           //   key={cardData.id}
           //   className="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center"
           // >
-          <HoverCard header={cardData.header} content={cardData.content} />
+          <HoverCard
+            key={cardData.id}
+            header={cardData.header}
+            content={cardData.content}
+          />
           // </div>
         ))}
       </div>

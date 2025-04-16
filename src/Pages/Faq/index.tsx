@@ -40,6 +40,7 @@ export default function FAQ() {
       <div className="d-flex flex-column align-items-center">
         {QandA.map((item, index) => (
           <div
+            key={item.id}
             className={`p-3 bg-${background} rounded shadow-sm mb-3 py-4 ${
               openIndex === index ? "border border-dark" : ""
             }`}
