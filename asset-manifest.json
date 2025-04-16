@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/openmarket-website/static/css/main.397f2eab.css",
-    "main.js": "/openmarket-website/static/js/main.7cc0da7f.js",
+    "main.js": "/openmarket-website/static/js/main.7da39845.js",
     "index.html": "/openmarket-website/index.html",
     "main.397f2eab.css.map": "/openmarket-website/static/css/main.397f2eab.css.map",
-    "main.7cc0da7f.js.map": "/openmarket-website/static/js/main.7cc0da7f.js.map"
+    "main.7da39845.js.map": "/openmarket-website/static/js/main.7da39845.js.map"
   },
   "entrypoints": [
     "static/css/main.397f2eab.css",
-    "static/js/main.7cc0da7f.js"
+    "static/js/main.7da39845.js"
   ]
 }
