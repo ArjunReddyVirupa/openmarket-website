@@ -1,0 +1,76 @@
+import React, { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useTheme } from "../../Theme";
+
+export default function Header() {
+  const { theme } = useTheme();
+  const [isHovered, setIsHovered] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [options] = useState(["What we offer", "About", "Contact us"]);
+  const menuColor = theme === "dark" ? "white" : "black";
+  const menuVariants = {
+    hidden: { x: "-100%" },
+    visible: { x: 0, transition: { type: "spring", stiffness: 80 } },
+    exit: { x: "-100%", transition: { type: "spring", stiffness: 80 } },
+  };
+
+  return (
+    <div>
+      <div className="d-flex justify-content-between">
+        <div>Open Market</div>
+        <motion.div
+          className="d-flex flex-column cursor-pointer"
+          animate={{ gap: isHovered ? "10px" : "4px" }}
+          onHoverStart={() => setIsHovered(true)}
+          onHoverEnd={() => setIsHovered(false)}
+          style={{ cursor: "pointer" }}
+          onClick={() => setMenuOpen(true)}
+        >
+          <motion.div
+            className={`bg-${menuColor} rounded`}
+            style={{ width: "40px", height: "4px" }}
+          />
+          <motion.div
+            className={`bg-${menuColor} rounded`}
+            style={{ width: "40px", height: "4px" }}
+          />
+        </motion.div>
+      </div>
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            className="position-fixed top-0 start-0 w-100 vh-100 bg-dark text-white d-flex"
+            variants={menuVariants}
+            style={{ zIndex: 1050 }}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
+            <svg
+              className="position-absolute top-0 end-0 my-4 mx-4"
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="30"
+              height="30"
+              viewBox="0 0 50 50"
+              onClick={() => setMenuOpen(false)}
+            >
+              <path
+                d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"
+                fill="#fff"
+              ></path>
+            </svg>
+            <ul className="list-unstyled mt-4 ms-4">
+              {options.map((option) => (
+                <li className="fs-4 mb-2" style={{ cursor: "pointer" }}>
+                  {option}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}

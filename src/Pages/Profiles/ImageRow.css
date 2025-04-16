@@ -1,0 +1,46 @@
+/* ImageRowComponent.css */
+
+.image-row-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+  height: 250px;
+}
+
+.image-card {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 120px;
+  transition: width 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  .image-row-container {
+    flex-wrap: wrap;
+    height: auto;
+  }
+  .image-card {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 640px) {
+  .image-row-container {
+    flex-direction: column;
+  }
+  .image-card {
+    width: 100%;
+  }
+  .always-show-footer {
+    margin-top: 5px;
+  }
+}

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: monospace;
 }
 
 .App-logo {
@@ -34,5 +35,26 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 991px) {
+  .always-show-footer {
+    transform: translateY(130px) !important;
+    opacity: 1 !important;
+  }
+}
+.bootstrap-wrapper{
+  display: flex;
+  justify-content: center;
+  gap: 0px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+@media not all and (min-width: 1280px) {
+  .bootstrap-wrapper {
+      flex-wrap: wrap;
+      gap: 1.25rem;
   }
 }
