@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from "../../Theme";
 
-export default function Header() {
+export default function Header({ onSelectMenuOption }: any) {
   const { theme } = useTheme();
   const [isHovered, setIsHovered] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [options] = useState(["What we offer", "About", "Contact us"]);
+  const [options] = useState([
+    { id: 1, label: "What we offer", value: "whatWeOffer" },
+    { id: 2, label: "About", value: "about" },
+    { id: 3, label: "Contact us", value: "contactUs" },
+  ]);
   const menuColor = theme === "dark" ? "white" : "black";
   const menuVariants = {
     hidden: { x: "-100%" },
@@ -63,8 +67,16 @@ export default function Header() {
             </svg>
             <ul className="list-unstyled mt-4 ms-4">
               {options.map((option) => (
-                <li className="fs-4 mb-2" style={{ cursor: "pointer" }}>
-                  {option}
+                <li
+                  key={option.id}
+                  className="fs-4 mb-2"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    onSelectMenuOption(option.value);
+                    setMenuOpen(false);
+                  }}
+                >
+                  {option.label}
                 </li>
               ))}
             </ul>

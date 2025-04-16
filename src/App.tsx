@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   FAQ,
   Header,
@@ -11,16 +11,47 @@ import ContactUs from "./Pages/ContactUs";
 import "./App.css";
 
 const App: React.FC = () => {
+  const [selectedOption, setSelectedOption] = useState("");
+
+  const sectionRefs = {
+    landing: useRef<HTMLDivElement | null>(null),
+    about: useRef<HTMLDivElement | null>(null),
+    contactUs: useRef<HTMLDivElement | null>(null),
+  };
+
+  useEffect(() => {
+    const ref = sectionRefs[selectedOption as keyof typeof sectionRefs];
+    if (ref?.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [selectedOption]);
+
+  const SectionWrapper: React.FC<{
+    id: keyof typeof sectionRefs;
+    children: React.ReactNode;
+  }> = ({ id, children }) => (
+    <div ref={sectionRefs[id]} tabIndex={-1}>
+      {children}
+    </div>
+  );
+
   return (
     <div className="py-4 px-4">
-      <Header />
-      <Landing />
+      <Header onSelectMenuOption={setSelectedOption} />
+      <SectionWrapper id="landing">
+        <Landing />
+      </SectionWrapper>
       <WhatWeOffer />
       <FAQ />
-      <Profiles />
-      <ContactUs />
+      <SectionWrapper id="about">
+        <Profiles />
+      </SectionWrapper>
+      <SectionWrapper id="contactUs">
+        <ContactUs />
+      </SectionWrapper>
       <SwitchTheme />
     </div>
   );
 };
+
 export default App;

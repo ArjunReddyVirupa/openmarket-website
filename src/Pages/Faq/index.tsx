@@ -5,7 +5,6 @@ import { useTheme } from "../../Theme";
 export default function FAQ() {
   const { theme } = useTheme();
   const background = theme === "light" ? "#edf0f5" : "black";
-  console.log(theme, "theme");
   const QandA = [
     {
       id: 1,
