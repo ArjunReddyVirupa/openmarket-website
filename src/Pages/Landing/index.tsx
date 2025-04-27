@@ -2,33 +2,78 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../Theme";
 
-const words = ["Marketing", "Buying", "Selling", "Monitoring"];
+const firstWords = [
+  "bring Visibility",
+  "defend risk",
+  "project trends",
+  "connect broader markets",
+  "bring swiftness to trade",
+];
+
+const secondWords = [
+  "get the best value",
+  "sell their produce in a breeze",
+  "withstand volatility",
+];
 
 const Landing: React.FC = () => {
+  const [phase, setPhase] = useState<"first" | "second">("first");
   const [index, setIndex] = useState(0);
   const { theme } = useTheme();
   const textColor = theme === "light" ? "black" : "white";
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % words.length);
+      if (phase === "first") {
+        if (index < firstWords.length - 1) {
+          setIndex((prev) => prev + 1);
+        } else {
+          setPhase("second");
+          setIndex(0);
+        }
+      } else {
+        if (index < secondWords.length - 1) {
+          setIndex((prev) => prev + 1);
+        } else {
+          setPhase("first");
+          setIndex(0);
+        }
+      }
     }, 2500);
     return () => clearInterval(interval);
-  }, []);
+  }, [index, phase]);
 
   return (
     <section
       className="d-flex justify-content-center align-items-center flex-column"
       style={{
-        minHeight: "600px",
+        minHeight: "700px",
         position: "relative",
         overflow: "hidden",
         padding: "60px 20px",
+        margin: "24px -24px 60px -24px",
+        // backgroundImage: `url(${HomeScreenImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
     >
-      <h2 className={`text-${textColor} mb-4 text-center fw-light fs-3`}>
-        We help our clients to build
+      {/* <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0, 0, 0, 0.4)",
+          zIndex: 0,
+        }}
+      ></div> */}
+      <h2
+        className={`text-${textColor} mb-4 text-center fw-bold fs-3`}
+        style={{ zIndex: 1 }}
+      >
+        {phase === "first" ? "We" : "So farmers can"}
       </h2>
-
       <div
         style={{
           position: "relative",
@@ -72,7 +117,7 @@ const Landing: React.FC = () => {
         >
           <AnimatePresence mode="wait">
             <motion.h1
-              key={words[index]}
+              key={phase + index}
               className={`fw-bold display-1 text-${textColor}`}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -80,7 +125,7 @@ const Landing: React.FC = () => {
               transition={{ duration: 0.6 }}
               style={{ margin: 0 }}
             >
-              {words[index]}
+              {phase === "first" ? firstWords[index] : secondWords[index]}
             </motion.h1>
           </AnimatePresence>
         </div>

@@ -5,24 +5,62 @@ import { useTheme } from "../../Theme";
 export default function FAQ() {
   const { theme } = useTheme();
   const background = theme === "light" ? "#edf0f5" : "black";
+  const ansColor = theme === "light" ? "#181818b3" : "rgb(237 240 245 / 0.7)";
   const QandA = [
     {
       id: 1,
-      question: "What services does Open market offer?",
+      question: "What is Openmarket.ag?",
       answer:
-        "Open market provides a range of digital services including web design, development, SEO, branding, mobile app development, and digital marketing. development, SEO, branding, mobile app development, and digital marketing. The email automation company also enhances the UX using a sidebar with a category overview and jump-to links, information about additional resources, and messages that encourage sales conversions.",
+        "Openmarket.ag is the first fully digital platform for agricultural trading, enabling the temporary dematerialization of farm produce to facilitate instant, global transactions among farmers, traders, and institutional buyers with just a few clicks.",
     },
     {
       id: 2,
-      question: "What services does Open market offer?",
-      answer:
-        "Open market provides a range of digital services including web design, development, SEO, branding, mobile app development, and digital marketing. development, SEO, branding, mobile app development, and digital marketing. The email automation company also enhances the UX using a sidebar with a category overview and jump-to links, information about additional resources, and messages that encourage sales conversions.",
+      question: "Which services does Openmarket.ag offer to farmers?",
+      answer: (
+        <ul>
+          <li>
+            <b>Instant Sales:</b>&nbsp;&nbsp;List and sell produce immediately
+            to both domestic and international buyers.
+          </li>
+          <li>
+            <b>Price Hedging:</b>&nbsp;&nbsp;Protect against market volatility
+            by hedging future produce at predetermined prices.
+          </li>
+        </ul>
+      ),
     },
     {
       id: 3,
-      question: "What services does Open market offer?",
+      question:
+        "Which services does Openmarket.ag offer to traders and institutional buyers?",
+      answer: (
+        <ul>
+          <li>
+            <b>Direct Procurement:</b>&nbsp;&nbsp;Source quality-assured produce
+            in any quantity straight from farmers.
+          </li>
+          <li>
+            <b>Volatility Management:</b>&nbsp;&nbsp;Hedge commodity positions
+            to mitigate price fluctuations.
+          </li>
+          <li>
+            <b>Margin Trading Facility:</b>&nbsp;&nbsp;Leverage margin accounts
+            to increase purchasing power with a smaller upfront investment.
+          </li>
+        </ul>
+      ),
+    },
+    {
+      id: 4,
+      question: "What is the Green Tick feature?",
       answer:
-        "Open market provides a range of digital services including web design, development, SEO, branding, mobile app development, and digital marketing. development, SEO, branding, mobile app development, and digital marketing. The email automation company also enhances the UX using a sidebar with a category overview and jump-to links, information about additional resources, and messages that encourage sales conversions.",
+        "Orders and trades bearing a green tick icon have been fully verified by Openmarket.ag for produce quality, quantity accuracy, and payment security.",
+    },
+    {
+      id: 5,
+      question: "Is the Openmarket.ag platform fully operational?",
+      answer:
+        "Openmarket.ag is currently live in selected regions with core functionality. We plan to extend full public access by the end of 2025.",
     },
   ];
 
@@ -33,7 +71,7 @@ export default function FAQ() {
   };
 
   return (
-    <div className="d-flex flex-column justify-content-center my-4">
+    <div className="d-flex flex-column justify-content-center my-5">
       <h2 className="text-center mb-5">
         Frequently asked <i>Questions</i>
       </h2>
@@ -76,6 +114,7 @@ export default function FAQ() {
                 }
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className="mb-0"
+                style={{ color: ansColor }}
               >
                 {item.answer}
               </motion.p>

@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from "../../Theme";
+import BlackLogo from "../../Assets/BlackLogo.svg";
+import WhiteLogo from "../../Assets/WhiteLogo.png";
 
 export default function Header({ onSelectMenuOption }: any) {
   const { theme } = useTheme();
+  const logo = theme === "dark" ? WhiteLogo : BlackLogo;
   const [isHovered, setIsHovered] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [options] = useState([
@@ -20,8 +23,10 @@ export default function Header({ onSelectMenuOption }: any) {
 
   return (
     <div>
-      <div className="d-flex justify-content-between">
-        <div>Open Market</div>
+      <div className="d-flex justify-content-between align-items-center">
+        <div>
+          <img src={logo} alt="" height={40} />
+        </div>
         <motion.div
           className="d-flex flex-column cursor-pointer"
           animate={{ gap: isHovered ? "10px" : "4px" }}
