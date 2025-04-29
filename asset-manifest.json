@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/openmarket-website/static/css/main.397f2eab.css",
-    "main.js": "/openmarket-website/static/js/main.9ee71c19.js",
+    "main.css": "/openmarket-website/static/css/main.86a50a5f.css",
+    "main.js": "/openmarket-website/static/js/main.3234ba87.js",
     "static/media/Voltility.png": "/openmarket-website/static/media/Voltility.7e73e867553500ff934e.png",
     "static/media/Convenience.png": "/openmarket-website/static/media/Convenience.b3a8ebb33a5a705e33c0.png",
     "static/media/MarginTrade.png": "/openmarket-website/static/media/MarginTrade.86f265980ce6a9b4ba20.png",
@@ -10,11 +10,11 @@
     "static/media/WhiteLogo.png": "/openmarket-website/static/media/WhiteLogo.3997ae9ec7073d7d23e0.png",
     "static/media/BlackLogo.svg": "/openmarket-website/static/media/BlackLogo.c1335107868604e70494d66ec21c365b.svg",
     "index.html": "/openmarket-website/index.html",
-    "main.397f2eab.css.map": "/openmarket-website/static/css/main.397f2eab.css.map",
-    "main.9ee71c19.js.map": "/openmarket-website/static/js/main.9ee71c19.js.map"
+    "main.86a50a5f.css.map": "/openmarket-website/static/css/main.86a50a5f.css.map",
+    "main.3234ba87.js.map": "/openmarket-website/static/js/main.3234ba87.js.map"
   },
   "entrypoints": [
-    "static/css/main.397f2eab.css",
-    "static/js/main.9ee71c19.js"
+    "static/css/main.86a50a5f.css",
+    "static/js/main.3234ba87.js"
   ]
 }
