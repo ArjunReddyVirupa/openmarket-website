@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
 type AnimatedModalProps = {
   show: boolean;
@@ -30,25 +31,25 @@ const modalVariants = {
 const ContactForm: React.FC<AnimatedModalProps> = ({ show, onClose }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
+    full_name: "",
     email: "",
-    phone: "",
+    phone_number: "",
     description: "",
   });
 
   const [errors, setErrors] = useState({
-    name: "",
+    full_name: "",
     email: "",
-    phone: "",
+    phone_number: "",
   });
 
   const validate = () => {
     const newErrors: any = {};
-    if (!formData.name.trim()) newErrors.name = "Name is required.";
+    if (!formData.full_name.trim()) newErrors.full_name = "Name is required.";
     if (!formData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/))
       newErrors.email = "Invalid email.";
-    if (!formData.phone.match(/^[0-9]{10}$/))
-      newErrors.phone = "Phone must be 10 digits.";
+    if (!formData.phone_number.match(/^[0-9]{10}$/))
+      newErrors.phone_number = "Phone must be 10 digits.";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -56,14 +57,45 @@ const ContactForm: React.FC<AnimatedModalProps> = ({ show, onClose }) => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    let inputValue = value;
+    if (name === "phone_number") {
+      inputValue = value.replace(/[^0-9]/g, "");
+    }
+    setFormData({ ...formData, [name]: inputValue });
     setErrors({ ...errors, [e.target.name]: "" });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
-    console.log("Form submitted:", formData);
+    await emailjs
+      .send(
+        "service_gqpoy2w",
+        "template_c21u73w",
+        {
+          full_name: formData.full_name,
+          email: formData.email,
+          phone_number: formData.phone_number,
+          description: formData.description,
+        },
+        "YpmROJ9mqA6Q_LiHc"
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+        },
+        (err) => {
+          console.error("FAILED...", err);
+        }
+      );
+
+    setFormData({
+      full_name: "",
+      email: "",
+      phone_number: "",
+      description: "",
+    });
     onClose();
   };
 
@@ -100,14 +132,17 @@ const ContactForm: React.FC<AnimatedModalProps> = ({ show, onClose }) => {
             <form onSubmit={handleSubmit} noValidate>
               <div className="mb-3">
                 <input
-                  name="name"
+                  name="full_name"
                   type="text"
                   placeholder="Full Name"
-                  className={`form-control ${errors.name ? "is-invalid" : ""}`}
-                  value={formData.name}
+                  className={`form-control ${
+                    errors.full_name ? "is-invalid" : ""
+                  }`}
+                  value={formData.full_name}
                   onChange={handleChange}
+                  autoComplete="off"
                 />
-                <div className="invalid-feedback">{errors.name}</div>
+                <div className="invalid-feedback">{errors.full_name}</div>
               </div>
 
               <div className="mb-3">
@@ -118,21 +153,25 @@ const ContactForm: React.FC<AnimatedModalProps> = ({ show, onClose }) => {
                   className={`form-control ${errors.email ? "is-invalid" : ""}`}
                   value={formData.email}
                   onChange={handleChange}
+                  autoComplete="off"
                 />
                 <div className="invalid-feedback">{errors.email}</div>
               </div>
 
               <div className="mb-3">
                 <input
-                  name="phone"
+                  name="phone_number"
                   placeholder="Phone Number"
                   type="tel"
-                  className={`form-control ${errors.phone ? "is-invalid" : ""}`}
-                  value={formData.phone}
+                  className={`form-control ${
+                    errors.phone_number ? "is-invalid" : ""
+                  }`}
+                  value={formData.phone_number}
                   onChange={handleChange}
                   maxLength={10}
+                  autoComplete="off"
                 />
-                <div className="invalid-feedback">{errors.phone}</div>
+                <div className="invalid-feedback">{errors.phone_number}</div>
               </div>
 
               <div className="mb-3">
@@ -143,6 +182,7 @@ const ContactForm: React.FC<AnimatedModalProps> = ({ show, onClose }) => {
                   rows={3}
                   value={formData.description}
                   onChange={handleChange}
+                  autoComplete="off"
                 ></textarea>
               </div>
 
@@ -181,9 +221,7 @@ const ContactForm: React.FC<AnimatedModalProps> = ({ show, onClose }) => {
                       zIndex: 3,
                       cursor: "pointer",
                     }}
-                    onClick={() => {
-                      console.log("send message");
-                    }}
+                    onClick={handleSubmit}
                   >
                     Send Message
                   </div>

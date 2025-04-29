@@ -69,8 +69,8 @@ const Landing: React.FC = () => {
         }}
       ></div> */}
       <h2
-        className={`text-${textColor} mb-4 text-center fw-bold fs-3`}
-        style={{ zIndex: 1 }}
+        className={`text-${textColor} mb-4 text-center fw-bold`}
+        style={{ zIndex: 1, fontFamily: `"Gill Sans", sans-serif` }}
       >
         {phase === "first" ? "We" : "So farmers can"}
       </h2>
@@ -123,7 +123,12 @@ const Landing: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.6 }}
-              style={{ margin: 0 }}
+              style={{
+                margin: 0,
+                fontSize: "54px",
+                fontStyle: "italic",
+                fontFamily: `"Gill Sans", sans-serif`,
+              }}
             >
               {phase === "first" ? firstWords[index] : secondWords[index]}
             </motion.h1>

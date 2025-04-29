@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { useTheme } from "../../Theme";
+import useDeviceType from "../../Hook/useDeviceType";
 
 export default function FAQ() {
   const { theme } = useTheme();
+  const { isDesktop } = useDeviceType();
   const background = theme === "light" ? "#edf0f5" : "black";
   const ansColor = theme === "light" ? "#181818b3" : "rgb(237 240 245 / 0.7)";
   const QandA = [
@@ -82,7 +84,7 @@ export default function FAQ() {
             className={`p-3 bg-${background} rounded shadow-sm mb-3 py-4 ${
               openIndex === index ? "border border-dark" : ""
             }`}
-            style={{ maxWidth: "800px" }}
+            style={{ maxWidth: "800px", width: isDesktop ? "800px" : "90%" }}
           >
             <div className="d-flex align-items-center justify-content-between">
               <h5 className="mb-0">{item.question}</h5>

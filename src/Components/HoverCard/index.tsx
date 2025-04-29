@@ -75,15 +75,17 @@ const HoverCard = ({ header, content, backgroundImage }: any) => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         style={{
           backgroundColor: "rgba(17, 17, 17, 0.6)",
-          textAlign: "left",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
           color: "white",
           zIndex: 3,
         }}
       >
-        <h3 className="text-left" style={{ color: "rgb(18 216 204)" }}>
+        <h3 className="text-center" style={{ color: "rgb(18 216 204)" }}>
           {header}
         </h3>
-        <p className="mt-3">{content}</p>
+        <p className="mt-3 text-center">{content}</p>
       </motion.div>
     </motion.div>
   );

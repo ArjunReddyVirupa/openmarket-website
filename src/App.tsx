@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import {
   FAQ,
+  Footer,
   Header,
   Landing,
   Profiles,
@@ -49,6 +50,7 @@ const App: React.FC = () => {
       <SectionWrapper id="contactUs">
         <ContactUs />
       </SectionWrapper>
+      <Footer />
       <SwitchTheme />
     </div>
   );

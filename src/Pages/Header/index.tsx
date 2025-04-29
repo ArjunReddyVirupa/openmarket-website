@@ -25,7 +25,7 @@ export default function Header({ onSelectMenuOption }: any) {
     <div>
       <div className="d-flex justify-content-between align-items-center">
         <div>
-          <img src={logo} alt="" height={40} />
+          <img loading="lazy" src={logo} alt="" height={40} />
         </div>
         <motion.div
           className="d-flex flex-column cursor-pointer"

@@ -41,6 +41,7 @@ const ContactBanner = () => {
             {images.map((img, i) => (
               <div key={i} style={{ height: "100px" }}>
                 <img
+                  loading="lazy"
                   src={img}
                   alt={`Slide ${i + 1}`}
                   className="w-240 h-100 object-fit-cover"
