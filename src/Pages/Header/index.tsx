@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useTheme } from "../../Theme";
+import { themeStyles, useTheme } from "../../Theme";
 import BlackLogo from "../../Assets/BlackLogo.svg";
 import WhiteLogo from "../../Assets/WhiteLogo.png";
 
@@ -23,7 +23,10 @@ export default function Header({ onSelectMenuOption }: any) {
 
   return (
     <div>
-      <div className="d-flex justify-content-between align-items-center">
+      <div
+        className="d-flex justify-content-between align-items-center header"
+        style={{ background: themeStyles[theme].background }}
+      >
         <div>
           <img loading="lazy" src={logo} alt="" height={40} />
         </div>

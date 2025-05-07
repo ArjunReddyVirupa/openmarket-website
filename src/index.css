@@ -9,3 +9,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.header {
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 4;
+  padding-top: 24px;
+  margin: -24px;
+  padding: 16px;
+}
+.footer{
+  display: flex;
+  align-items: center;
+  width: 95%;
+  gap: 4px;
+}
+.footer {
+  cursor: pointer;
+}

@@ -25,6 +25,7 @@ const App: React.FC = () => {
     if (ref?.current) {
       ref.current.scrollIntoView({ behavior: "smooth" });
     }
+    // eslint-disable-next-line
   }, [selectedOption]);
 
   const SectionWrapper: React.FC<{

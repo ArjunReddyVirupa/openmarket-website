@@ -17,6 +17,23 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+export const themeStyles: Record<"light" | "dark", ThemeStyles> = {
+  light: {
+    background: "#edf0f5",
+    color: "#000000",
+    activeColor: "#12d8cc",
+    buttonBg: "#007bff",
+    buttonColor: "#ffffff",
+  },
+  dark: {
+    background: "#151515",
+    color: "#ffffff",
+    activeColor: "#12d8cc",
+    buttonBg: "#343a40",
+    buttonColor: "#ffffff",
+  },
+};
+
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
@@ -24,23 +41,6 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
-
-  const themeStyles: Record<"light" | "dark", ThemeStyles> = {
-    light: {
-      background: "#edf0f5",
-      color: "#000000",
-      activeColor: "#12d8cc",
-      buttonBg: "#007bff",
-      buttonColor: "#ffffff",
-    },
-    dark: {
-      background: "#151515",
-      color: "#ffffff",
-      activeColor: "#12d8cc",
-      buttonBg: "#343a40",
-      buttonColor: "#ffffff",
-    },
   };
 
   return (

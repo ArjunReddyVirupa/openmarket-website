@@ -5,12 +5,12 @@ export default function SwitchTheme() {
   const { theme, toggleTheme } = useTheme();
   const background = theme === "dark" ? "white" : "black";
   return (
-    <div className="toggle-button position-fixed bottom-0 end-0 mb-4 me-4 z-1000">
+    <div className="toggle-button position-fixed bottom-0 end-0 mb-1 me-1 z-1000">
       <button
         id="theme-toggle"
         type="button"
         className={`text-secondary bg-${background} bg-opacity-90 dark:bg-body-secondary dark:bg-opacity-90 rounded-1 backdrop-blur-xl dark:text-white focus:outline-none focus:ring-0 focus:ring-gray-200 d-flex justify-content-center align-items-center`}
-        style={{ width: "44px", height: "44px" }}
+        style={{ width: "36px", height: "36px" }}
         onClick={toggleTheme}
       >
         {theme === "dark" ? (

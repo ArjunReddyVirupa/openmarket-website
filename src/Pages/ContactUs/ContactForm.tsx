@@ -30,6 +30,7 @@ const modalVariants = {
 
 const ContactForm: React.FC<AnimatedModalProps> = ({ show, onClose }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [button, setButton] = useState("Send Message");
   const [formData, setFormData] = useState({
     full_name: "",
     email: "",
@@ -68,7 +69,11 @@ const ContactForm: React.FC<AnimatedModalProps> = ({ show, onClose }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validate()) return;
+    setButton("Sending...");
+    if (!validate()) {
+      setButton("Send Message");
+      return;
+    }
     await emailjs
       .send(
         "service_gqpoy2w",
@@ -97,6 +102,7 @@ const ContactForm: React.FC<AnimatedModalProps> = ({ show, onClose }) => {
       description: "",
     });
     onClose();
+    setButton("Send Message");
   };
 
   return (
@@ -223,7 +229,7 @@ const ContactForm: React.FC<AnimatedModalProps> = ({ show, onClose }) => {
                     }}
                     onClick={handleSubmit}
                   >
-                    Send Message
+                    {button}
                   </div>
                 </div>
               </div>
