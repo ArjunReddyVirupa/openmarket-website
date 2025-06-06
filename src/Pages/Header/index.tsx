@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { themeStyles, useTheme } from "../../Theme";
-import BlackLogo from "../../Assets/BlackLogo.svg";
-import WhiteLogo from "../../Assets/WhiteLogo.png";
 
 export default function Header({ onSelectMenuOption }: any) {
   const { theme } = useTheme();
-  const logo = theme === "dark" ? WhiteLogo : BlackLogo;
+  const logo =
+    theme === "dark"
+      ? "https://openmarket-images.vercel.app/WhiteLogo.png"
+      : "https://openmarket-images.vercel.app/BlackLogo.svg";
   const [isHovered, setIsHovered] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [options] = useState([

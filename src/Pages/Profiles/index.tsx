@@ -1,55 +1,51 @@
-import React from "react";
 import { motion } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import useDeviceType from "../../Hook/useDeviceType";
-import BhanuPrathap from "../../Assets/BhanuPrathap.png";
-import Monika from "../../Assets/MonikaImadisetty.png";
-import Manjunath from "../../Assets/ManjunathSaginela.png";
-import Likith from "../../Assets/LikithKalyan.png";
-import Danush from "../../Assets/DanushDepuri.png";
-import Gowrav from "../../Assets/GowravReddy.png";
-import Nipun from "../../Assets/NipunKrishnan.png";
-import Sai from "../../Assets/SaiVignesh.png";
 
 const images = [
   {
-    src: Manjunath,
+    src: "https://openmarket-images.vercel.app/ManjunathSaginela.png",
     name: "Manjunath",
     role: "CEO",
   },
   {
-    src: Gowrav,
+    src: "https://openmarket-images.vercel.app/GowravReddy.png",
     name: "Gowrav",
     role: "CMO",
   },
   {
-    src: Sai,
+    src: "https://openmarket-images.vercel.app/SaiVignesh.png",
     name: "Sai Vignesh",
     role: "Director- Head Open Market",
   },
   {
-    src: BhanuPrathap,
+    src: "https://openmarket-images.vercel.app/BhanuPrathap.png",
     name: "Bhanu Prathap",
     role: "Head - Strategies & New Initiatives",
   },
   {
-    src: Nipun,
+    src: "https://openmarket-images.vercel.app/NipunKrishnan.png",
     name: "Nipun",
     role: "Head - Corporate Relations",
   },
   {
-    src: Monika,
+    src: "https://openmarket-images.vercel.app/MonikaImadisetty.png",
     name: "Mounika",
     role: "COO",
   },
   {
-    src: Danush,
+    src: "https://openmarket-images.vercel.app/DanushDepuri.png",
     name: "Danush Depuri",
     role: "Software Developer",
   },
   {
-    src: Likith,
+    src: "https://openmarket-images.vercel.app/LikithKalyan.png",
     name: "Likith Kalyan",
+    role: "Software Developer",
+  },
+  {
+    src: "https://openmarket-images.vercel.app/SharathChandra.png",
+    name: "Sharath Chandra",
     role: "Software Developer",
   },
 ];

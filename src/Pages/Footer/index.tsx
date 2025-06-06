@@ -1,7 +1,3 @@
-import InstagramIcon from "../../Assets/Instagram.svg";
-import LinkedInIcon from "../../Assets/LinkedIn.svg";
-import YoutubeIcon from "../../Assets/Youtube.svg";
-
 export default function Footer() {
   const linkedInLink = "https://www.linkedin.com/company/openmarket-ag/";
   const youtubeUrl = "https://youtube.com/@openmarketag?si=Wjsw3R5pSGpw65vA";
@@ -10,14 +6,14 @@ export default function Footer() {
   return (
     <footer className="footer">
       <img
-        src={InstagramIcon}
+        src={"https://openmarket-images.vercel.app/Instagram.svg"}
         alt=""
         height={40}
         width={40}
         onClick={() => window.open(instaUrl, "_blank")}
       />
       <img
-        src={LinkedInIcon}
+        src={"https://openmarket-images.vercel.app/LinkedIn.svg"}
         alt=""
         height={40}
         width={40}
@@ -25,7 +21,7 @@ export default function Footer() {
       />
       <img
         onClick={() => window.open(youtubeUrl, "_blank")}
-        src={YoutubeIcon}
+        src={"https://openmarket-images.vercel.app/Youtube.svg"}
         alt=""
         height={40}
         width={40}
