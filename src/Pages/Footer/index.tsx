@@ -3,9 +3,10 @@ import LinkedInIcon from "../../Assets/LinkedIn.svg";
 import YoutubeIcon from "../../Assets/Youtube.svg";
 
 export default function Footer() {
-  const linkedInLink = "https://www.linkedin.com/company/crop-wings/";
-  const youtubeUrl = "https://youtube.com/@openmarketag?si=usXe-fqiV0yjfYMu";
-  const instaUrl = "https://instagram.com/cropwings?igshid=YmMyMTA2M2Y=";
+  const linkedInLink = "https://www.linkedin.com/company/openmarket-ag/";
+  const youtubeUrl = "https://youtube.com/@openmarketag?si=Wjsw3R5pSGpw65vA";
+  const instaUrl =
+    "https://www.instagram.com/openmarket.ag?igsh=MXYyOWJmYTI0NWgxeQ==";
   return (
     <footer className="footer">
       <img

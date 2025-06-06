@@ -44,13 +44,13 @@ const images = [
   },
   {
     src: Danush,
-    name: "Mounika",
-    role: "COO",
+    name: "Danush Depuri",
+    role: "Software Developer",
   },
   {
     src: Likith,
-    name: "Mounika",
-    role: "COO",
+    name: "Likith Kalyan",
+    role: "Software Developer",
   },
 ];
 
