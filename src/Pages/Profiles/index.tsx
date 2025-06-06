@@ -2,35 +2,53 @@ import React from "react";
 import { motion } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import useDeviceType from "../../Hook/useDeviceType";
+import BhanuPrathap from "../../Assets/BhanuPrathap.png";
+import Monika from "../../Assets/MonikaImadisetty.png";
+import Manjunath from "../../Assets/ManjunathSaginela.png";
+import Likith from "../../Assets/LikithKalyan.png";
+import Danush from "../../Assets/DanushDepuri.png";
+import Gowrav from "../../Assets/GowravReddy.png";
+import Nipun from "../../Assets/NipunKrishnan.png";
+import Sai from "../../Assets/SaiVignesh.png";
 
 const images = [
   {
-    src: "https://rivor-tailwind.vercel.app/images/home-ai/team/ai-team-1.png",
+    src: Manjunath,
     name: "Manjunath",
     role: "CEO",
   },
   {
-    src: "https://rivor-tailwind.vercel.app/images/home-ai/team/ai-team-2.png",
+    src: Gowrav,
     name: "Gowrav",
     role: "CMO",
   },
   {
-    src: "https://rivor-tailwind.vercel.app/images/home-ai/team/ai-team-3.png",
+    src: Sai,
     name: "Sai Vignesh",
     role: "Director- Head Open Market",
   },
   {
-    src: "https://rivor-tailwind.vercel.app/images/home-ai/team/ai-team-4.png",
+    src: BhanuPrathap,
     name: "Bhanu Prathap",
     role: "Head - Strategies & New Initiatives",
   },
   {
-    src: "https://rivor-tailwind.vercel.app/images/home-ai/team/ai-team-3.png",
+    src: Nipun,
     name: "Nipun",
     role: "Head - Corporate Relations",
   },
   {
-    src: "https://rivor-tailwind.vercel.app/images/home-ai/team/ai-team-2.png",
+    src: Monika,
+    name: "Mounika",
+    role: "COO",
+  },
+  {
+    src: Danush,
+    name: "Mounika",
+    role: "COO",
+  },
+  {
+    src: Likith,
     name: "Mounika",
     role: "COO",
   },
@@ -106,9 +124,9 @@ const ImageRowComponent = () => {
                   className="d-none d-lg-block"
                   style={{
                     position: "absolute",
-                    left: "5%",
-                    width: "90%",
-                    top: 0,
+                    // left: "5%",
+                    width: "100%",
+                    top: 20,
                     background: "rgb(18 216 204)",
                     color: "white",
                     textAlign: "center",
